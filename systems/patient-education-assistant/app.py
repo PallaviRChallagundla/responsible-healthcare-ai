@@ -1,4 +1,6 @@
 from safety import violates_policy
+from evaluator import evaluate_interaction
+
 
 SYSTEM_DISCLAIMER = (
     "⚠️ Educational use only. This system provides general health information "
