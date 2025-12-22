@@ -24,12 +24,12 @@ def generate_response(user_input: str) -> str:
         "For medical decisions, always consult a qualified clinician."
     )
 
-if __name__ == "__main__":
+    if __name__ == "__main__":
     print("Patient Education Assistant")
     print(SYSTEM_DISCLAIMER)
     print("\nType 'exit' to quit.\n")
 
-        while True:
+    while True:
         user_input = input("You: ")
         if user_input.lower() in ["exit", "quit"]:
             break
@@ -42,6 +42,7 @@ if __name__ == "__main__":
         blocked = violates_policy(user_input)
         response = generate_response(user_input)
 
+        # Evaluation hook
+        evaluate_interaction(user_input, blocked, demographic)
+
         print("\nAI:", response, "\n")
-
-
