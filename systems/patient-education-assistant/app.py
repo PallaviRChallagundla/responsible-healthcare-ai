@@ -27,11 +27,19 @@ if __name__ == "__main__":
     print(SYSTEM_DISCLAIMER)
     print("\nType 'exit' to quit.\n")
 
-    while True:
+        while True:
         user_input = input("You: ")
         if user_input.lower() in ["exit", "quit"]:
             break
 
+        # Optional, user-declared context (not required)
+        demographic = input(
+            "Optional context (e.g., age group: <18, 18-35, 36-50, 51+ or press Enter): "
+        ).strip() or "unknown"
+
+        blocked = violates_policy(user_input)
         response = generate_response(user_input)
+
         print("\nAI:", response, "\n")
+
 
